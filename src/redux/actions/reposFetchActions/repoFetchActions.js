@@ -1,6 +1,7 @@
 import * as actionTypes from '../../types'
 import axiosInstance from '../../../apis/axiosInstance'
 import { formatTableData } from '../../../utility/dataFormatter'
+import { searchTextAction } from '../searchData/searchDataActions'
 
 const fetchStart = () => {
   return {
@@ -22,15 +23,24 @@ const fetchFailed = (message) => {
   }
 }
 
-export const repoSearch = (searchText) => {
+export const repoSearch = (searchData) => {
   return (dispatch) => {
     dispatch(fetchStart())
+    console.log('From Action', searchData.sortBy)
 
     axiosInstance
-      .get(`/repositories?q=${searchText}`)
+      .get('/repositories', {
+        params: {
+          q: searchData.searchText,
+          sort: searchData.sortBy,
+          order: searchData.orderBy,
+          per_page: searchData.per_page,
+        },
+      })
       .then((response) => {
         const restructedResponse = formatTableData(response.data.items)
         dispatch(fetchSuccess(restructedResponse))
+        dispatch(searchTextAction(searchData.searchText))
       })
       .catch((err) => {
         dispatch(fetchFailed(err.message))
