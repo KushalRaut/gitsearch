@@ -29,7 +29,7 @@ export const repoSearch = (searchData) => {
     console.log('From Action', searchData.sortBy)
 
     axiosInstance
-      .get('/repositories', {
+      .get('/search/repositories', {
         params: {
           q: searchData.searchText,
           sort: searchData.sortBy,

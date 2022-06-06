@@ -7,7 +7,7 @@ export const formatTableData = (fetchedData) => {
       stars: repo.stargazers_count,
       watchers: repo.watchers,
       forks: repo.forks,
-      lastUpdate: repo.updated_at.substring(0, 10),
+      lastUpdate: repo.updated_at.substring(0, 10)
     }
   })
   return restrucedDataArray
