@@ -43,16 +43,13 @@ const ResultPage = (props) => {
               <button className="icons-style bg-secondary">
                 {repo.watchers} <GoEye />
               </button>
-              <button className="icons-style bg-teal">
-                {repo.watchers} <GoEye />
-              </button>
             </div>
           </>
         ),
         action: (
           <>
             <Link to={`/repo/${repo.author}/${repo.name}`}>
-              <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-primary">
+              <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-teal">
                 View Repo
                 <GoMarkGithub />
               </button>

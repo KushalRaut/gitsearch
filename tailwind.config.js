@@ -9,6 +9,20 @@ module.exports = {
         secondary: '#6c757d',
         primary: '#007bff',
         danger: '#dc3545',
+        main: '#00a3ff',
+      },
+      fontFamily: {
+        Montserrat: ['Montserrat', 'sans-serif'],
+        Poppins: ['Poppins', 'serif'],
+        Vollkorn: ['Vollkorn', 'serif'],
+      },
+      screens: {
+        '2xl': '1536px',
+        xl: '1280px',
+        lg: '1024px',
+        md: '768px',
+        sm: '640px',
+        xs: '425px'
       },
     },
   },

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Vollkorn:wght@400;500;600;700&display=swap');
+
+*:focus {
+  outline: none;
+}
+
+button:hover {
+  transition: ease-in-out 0.4s;
+}
+
 .icons-style {
   display: flex;
   justify-content: center;
@@ -12,4 +22,39 @@
   border-radius: 5px;
   font-weight: 600;
   width: 3.8rem;
+}
+
+.home-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 14px;
+  height: 40px;
+  background: rgba(0, 163, 255, 0.1);
+  border-radius: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #00a3ff;
+}
+
+@media screen and (max-width: 575px) {
+  .home-text {
+    order: 6;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.table-responsive table > thead {
+  vertical-align: middle;
+}
+
+.table-responsive table > thead:last-child {
+  display: none;
 }
