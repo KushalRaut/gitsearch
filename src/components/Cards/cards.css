@@ -1,0 +1,29 @@
+.Card_Container {
+  width: 25rem;
+  border: 2px solid #5f5f5fbb;
+  border-radius: 10px;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.3rem 1.5rem;
+}
+.Card_Container img {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.Card_Container table {
+  width: 100%;
+}
+.Card_Container .label {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-right: 0.5rem;
+}
+
+.Card_Container .name {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-left: 0.5rem;
+  white-space: wrap;
+}

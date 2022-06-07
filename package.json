@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.1.2",
+    "@coreui/coreui": "3.4.0",
+    "@coreui/react": "3.4.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,8 +15,6 @@
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
     "framer-motion": "^6",
-    "mdb-react-ui-kit": "^3.0.0",
-    "mdbreact": "^5.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",

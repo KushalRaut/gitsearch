@@ -8,7 +8,7 @@ const Spinner = () => {
         className="w-screen flex justify-center items-center"
         style={{ height: '80vh' }}
       >
-        <HashLoader color={'#7ED321'} size={50} />
+        <HashLoader color={'#00a3ff'} size={50} />
       </div>
     </>
   )

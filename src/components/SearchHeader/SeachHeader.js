@@ -1,10 +1,13 @@
 import { Input, InputGroup, InputRightElement, Select } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { BiSearchAlt } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { repoSearch } from '../../redux/actions/reposFetchActions/repoFetchActions'
 import { searchTextAction } from '../../redux/actions/searchData/searchDataActions'
 import { useNavigate, useLocation } from 'react-router-dom'
+import './searchHeader.css'
+import { FaGithubSquare, FaSearch } from 'react-icons/fa'
+import { BiSearchAlt } from 'react-icons/bi'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const SearchHeader = (props) => {
   const text = props.text ? props.text : ''
@@ -12,6 +15,7 @@ const SearchHeader = (props) => {
   const [ascDsc, setAscDsc] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { width } = useWindowSize()
 
   const { pathname } = useLocation()
 
@@ -46,38 +50,50 @@ const SearchHeader = (props) => {
   }
   return (
     <>
-      <div className="w-screen h-20 px-5 py-2 border-2">
-        <div className="w-64">
-          <form
-            className="flex"
-            onSubmit={(e) => {
-              handleSubmit(e)
-            }}
-          >
-            <InputGroup>
-              <Input
+      <div className="w-screen">
+        <div className="Main_Header">
+          <div className="container">
+            <button
+              className="Logo_Container font-Vollkorn tracking-wide"
+              onClick={() => {
+                navigate('/')
+              }}
+            >
+              <FaGithubSquare />
+              gitSearch
+            </button>
+
+            <form
+              className="Search_Bar"
+              onSubmit={(e) => {
+                handleSubmit(e)
+              }}
+            >
+              <input
+                className="px-3 font-Montserrat w-[90%]"
                 placeholder="Enter search text"
                 value={text}
                 onChange={(e) => {
                   dispatch(searchTextAction(e.target.value))
                 }}
               />
-              <InputRightElement
-                children={
-                  <button type="submit">
-                    <BiSearchAlt />
-                  </button>
-                }
-              />
-            </InputGroup>
-          </form>
+
+              <button type="submit" className="text-2xl px-3 border-l-2">
+                <BiSearchAlt />
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="flex">
+        <div className="container flex justify-between items-center flex-wrap py-3">
           {!result && (
             <>
-              <p>{`Showing Results for ${text}`}</p>
-              <div className="flex">
+              <p className="font-Montserrat text-lg font-medium">{`Showing Results for ${text}`}</p>
+              <div className="flex justify-center items-center gap-3">
+                <p className="font-Poppins text-lg whitespace-nowrap px-2 font-semibold">
+                  Sort By:
+                </p>
                 <Select
+                  className="border-2"
                   onChange={(e) => {
                     setSortBy(e.target.value)
                     handleOrder(e.target.value)

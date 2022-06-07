@@ -5,6 +5,10 @@ import { useParams } from 'react-router-dom'
 import axiosInstance from '../apis/axiosInstance'
 import SearchHeader from '../components/SearchHeader/SeachHeader'
 import MarkdownPreview from '@uiw/react-markdown-preview'
+import RepoDetailCard from '../components/Cards/RepoDetailCard'
+import AuthorDetailCard from '../components/Cards/AuthorDetailCard'
+import RepoDescription from '../components/Cards/RepoDescription'
+import Footer from '../components/Footer/Footer'
 
 const Repository = (props) => {
   const { searchText } = props
@@ -55,49 +59,21 @@ const Repository = (props) => {
     <>
       <SearchHeader text={searchText} />
       <div className="container">
-        <div className="flex flex-row sm:flex-wrap">
-          <div className="w-full md:w-1/2 p-4">
-            <div className="border-2">
-              <p>Repository Name:{repoDetail?.name}</p>
-              <p>No. of Stars:{repoDetail?.stargazers_count}</p>
-              <p>No. of Forks:{repoDetail?.forks}</p>
-              <p>Main Branch:{repoDetail?.default_branch}</p>
-              <p>Repository Size:{repoDetail?.size / 1024}Mb</p>
-              <p>No. of Open Issues:{repoDetail?.open_issues_count}</p>
-            </div>
-          </div>
-          <div className="w-full md:w-1/2 p-4">
-            <div className="border-2">
-              <div className="flex">
-                <img
-                  src={userDetail?.avatar_url}
-                  alt="no-img"
-                  width={80}
-                  height={80}
-                />
-                <p>{userDetail?.name}</p>
-              </div>
-              <p>Followers:{userDetail?.followers}</p>
-              <p>Blog:{userDetail?.blog}</p>
-              <p>Created At:{userDetail?.created_at?.substring(0, 10)}</p>
-              <p>Public Repos:{userDetail?.public_repos}</p>
-              <p>Bio:{userDetail?.bio}</p>
-            </div>
-          </div>
+        <div className="flex flex-row justify-center gap-5 flex-wrap px-2">
+          <RepoDetailCard repoDetail={repoDetail} />
+          <AuthorDetailCard userDetail={userDetail} />
+          <RepoDescription descp={repoDetail?.description} />
         </div>
-        <div>
-          <p>Repository Description</p>
-          <p>{repoDetail?.description}</p>
-        </div>
-        <div>
-          <p>Readme File</p>
-          <div className='p-5'>
+        <div className="Rdme_Container">
+          <p className="text-2xl font-semibold font-Poppins">Readme.md</p>
+          <div className="px-4 py-3 border-2 border-gray-400 rounded-lg">
             <div data-color-mode="light">
               <MarkdownPreview source={rdmeContent} />
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

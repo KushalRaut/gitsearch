@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { MDBDataTable } from 'mdbreact'
 import Spinner from '../components/LoadingSpinner/Spinner'
 import { tableColumn } from '../data'
 import SeachHeader from '../components/SearchHeader/SeachHeader'
 import { GoStar, GoRepoForked, GoEye, GoMarkGithub } from 'react-icons/go'
 import { Link, useNavigate } from 'react-router-dom'
+import { CDataTable } from '@coreui/react'
+import Footer from '../components/Footer/Footer'
 
 const ResultPage = (props) => {
   const { repoData, loading, searchText, error } = props
@@ -16,52 +17,6 @@ const ResultPage = (props) => {
       navigate('/')
     }
   }, [searchText])
-  console.log(searchText)
-
-  const getData = () => {
-    const data = {
-      columns: tableColumn,
-      rows: [],
-    }
-
-    repoData?.forEach((repo, index) => {
-      data.rows.push({
-        sn: index + 1,
-        name: repo.name,
-        author: repo.author,
-        description: repo.description,
-        lastUpdate: repo.lastUpdate,
-        stats: (
-          <>
-            <div className="flex gap-2">
-              <button className="icons-style bg-success">
-                {repo.stars} <GoStar />
-              </button>
-              <button className="icons-style bg-info">
-                {repo.forks} <GoRepoForked />
-              </button>
-              <button className="icons-style bg-secondary">
-                {repo.watchers} <GoEye />
-              </button>
-            </div>
-          </>
-        ),
-        action: (
-          <>
-            <Link to={`/repo/${repo.author}/${repo.name}`}>
-              <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-teal">
-                View Repo
-                <GoMarkGithub />
-              </button>
-            </Link>
-          </>
-        ),
-      })
-    })
-
-    return data
-  }
-  console.log(getData())
 
   return (
     <>
@@ -69,17 +24,54 @@ const ResultPage = (props) => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="px-5 py-8">
-          <MDBDataTable
+        <div className="container">
+          <CDataTable
+            fields={tableColumn}
+            items={repoData}
+            tableFilter
+            itemsPerPageSelect={{ values: [10, 25, 50] }}
+            itemsPerPage={10}
+            hover
+            sorter
+            border
+            outlined
             striped
-            bordered
-            small
-            entriesOptions={[5, 25, 50]}
-            data={getData()}
             responsive
+            pagination={{ align: 'center' }}
+            size="md"
+            scopedSlots={{
+              stats: (item) => (
+                <td>
+                  <div className="flex gap-2">
+                    <button className="icons-style bg-success">
+                      {item.stars} <GoStar />
+                    </button>
+                    <button className="icons-style bg-info">
+                      {item.forks} <GoRepoForked />
+                    </button>
+                    <button className="icons-style bg-secondary">
+                      {item.watchers} <GoEye />
+                    </button>
+                  </div>
+                </td>
+              ),
+              actions: (item, index) => {
+                return (
+                  <td className="py-2">
+                    <Link to={`/repo/${item.author}/${item.name}`}>
+                      <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-teal">
+                        View Repo
+                        <GoMarkGithub />
+                      </button>
+                    </Link>
+                  </td>
+                )
+              },
+            }}
           />
         </div>
       )}
+      <Footer />
     </>
   )
 }

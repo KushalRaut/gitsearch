@@ -8,8 +8,12 @@
   outline: none;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 button:hover {
-  transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.3s;
 }
 
 .icons-style {
@@ -32,7 +36,7 @@ button:hover {
   padding: 8px 16px;
   gap: 14px;
   height: 40px;
-  background: rgba(0, 163, 255, 0.1);
+  background: rgb(255, 255, 255);
   border-radius: 16px;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -41,6 +45,17 @@ button:hover {
   letter-spacing: 0.01em;
   text-align: center;
   color: #00a3ff;
+  border: 2px solid #00a3ff;
+}
+
+.Rdme_Container {
+  padding: 2rem 1rem;
+}
+
+.home-btns:hover {
+  background: #00a3ff;
+  color: white;
+  border: 2px solid white;
 }
 
 @media screen and (max-width: 575px) {
