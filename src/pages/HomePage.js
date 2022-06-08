@@ -26,17 +26,29 @@ const HomePage = (props) => {
     <div className="w-screen h-screen">
       <div className="bg-main">
         <div className="container h-[10%] p-3 flex flex-wrap justify-between items-center">
-          <button className="home-btns">
-            <FcAbout />
-            About
-          </button>
+          <a
+            href="https://github.com/KushalRaut/gitsearch#readme"
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            <button className="home-btns">
+              <FcAbout />
+              About
+            </button>
+          </a>
           <p className="home-text font-Montserrat lg:text-2xl md:text-xl text-lg font-bold tracking-wider p-1">
             {getDate()}
           </p>
-          <button className="home-btns">
-            <BsGithub />
-            Dev Profile
-          </button>
+          <a
+            href="https://github.com/KushalRaut"
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            <button className="home-btns">
+              <BsGithub />
+              Dev Profile
+            </button>
+          </a>
         </div>
       </div>
       <form
@@ -49,10 +61,10 @@ const HomePage = (props) => {
           <span className="text-main">git</span>
           <span className="text-[#979797]">Search</span>
         </h1>
-        <div className="flex">
+        <div className="flex font-Montserrat">
           <input
             type="text"
-            className="w-[16rem] xs:[20rem] sm:w-[23rem] md:w-[30rem] lg:w-[40rem] md:h-10 sm:h-8 h-6 md:px-7 px-3 sm:py-[28px] py-[24px] my-3 text-[#979797] font-Montserrat font-semibold md:text-xl rounded-[2.5rem] bg-[#F5F5F5] z-10"
+            className="w-[16rem] sm:w-[23rem] md:w-[30rem] lg:w-[40rem] md:h-10 sm:h-8 h-6 md:px-7 px-3 sm:py-[28px] py-[24px] my-3 text-[#979797]  font-semibold md:text-xl rounded-[2.5rem] bg-[#F5F5F5] border-2 border-gray-200 z-10"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value)
@@ -61,7 +73,7 @@ const HomePage = (props) => {
           />
           <button
             type="submit"
-            className="w-[7rem] sm:w-[12rem] md:w-[11rem] lg:w-[15rem] md:h-10 sm:h-8 h-6 lg:px-8 px-2 sm:py-[28px] py-[24px] bg-[#00a3ff33] my-3 ml-[-2rem] rounded-r-[2.5rem] font-Montserrat font-semibold md:text-xl flex justify-center items-center text-main tracking-wider hover:text-white hover:bg-main"
+            className="w-[7rem] sm:w-[11rem] md:w-[12rem] lg:w-[15rem] md:h-10 sm:h-8 h-6 lg:px-8 px-2 sm:py-[28px] py-[24px] bg-[#00a3ff33] my-3 ml-[-2rem] rounded-r-[2.5rem] font-semibold md:text-xl flex justify-center items-center text-main tracking-wider border-2 border-blue-200 hover:text-white hover:bg-main"
           >
             {size.width < 635 ? (
               <span className="text-xl">

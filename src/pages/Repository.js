@@ -51,18 +51,18 @@ const Repository = (props) => {
       })
   }, [repoDetail])
 
-  console.log(repoDetail)
-  console.log(rdmeContent)
-  console.log(userDetail)
-
   return (
     <>
       <SearchHeader text={searchText} />
       <div className="container">
         <div className="flex flex-row justify-center gap-5 flex-wrap px-2">
-          <RepoDetailCard repoDetail={repoDetail} />
-          <AuthorDetailCard userDetail={userDetail} />
+          <a href={repoDetail?.html_url} target={'_blank'} rel="noreferrer">
+            <RepoDetailCard repoDetail={repoDetail} />
+          </a>
           <RepoDescription descp={repoDetail?.description} />
+          <a href={userDetail?.html_url} target={'_blank'} rel="noreferrer">
+            <AuthorDetailCard userDetail={userDetail} />
+          </a>
         </div>
         <div className="Rdme_Container">
           <p className="text-2xl font-semibold font-Poppins">Readme.md</p>

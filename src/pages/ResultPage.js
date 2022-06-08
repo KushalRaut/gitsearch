@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Spinner from '../components/LoadingSpinner/Spinner'
 import { tableColumn } from '../data'
@@ -9,7 +9,7 @@ import { CDataTable } from '@coreui/react'
 import Footer from '../components/Footer/Footer'
 
 const ResultPage = (props) => {
-  const { repoData, loading, searchText, error } = props
+  const { repoData, loading, searchText } = props
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const ResultPage = (props) => {
                     <button className="icons-style bg-info">
                       {item.forks} <GoRepoForked />
                     </button>
-                    <button className="icons-style bg-secondary">
+                    <button className="icons-style bg-teal">
                       {item.watchers} <GoEye />
                     </button>
                   </div>
@@ -59,7 +59,7 @@ const ResultPage = (props) => {
                 return (
                   <td className="py-2">
                     <Link to={`/repo/${item.author}/${item.name}`}>
-                      <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-teal">
+                      <button className="flex gap-1 text-white p-1 items-center justify-center rounded-md font-semibold bg-primary">
                         View Repo
                         <GoMarkGithub />
                       </button>
