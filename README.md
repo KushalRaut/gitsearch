@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+
+
+<h1 align="center">Gitsearch</h1>
+
+<h3>Browse from more than 120 Million repositories in Github</h3>
+
+<h3>About the Project:</h3>
+Gitsearch is an web application that allows users to search repositories across Github by entering a keyword. Gitsearch uses Github API to get the data from Github and also allows users filter data accordingly.
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a>  <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a><a href="https://tailwindcss.com/" > <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="40" height="40"/></a><a href="https://docs.github.com/en/rest">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40"/>
+          </a><a href="https://www.postman.com/"><img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" width="40" height="40"/></a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
