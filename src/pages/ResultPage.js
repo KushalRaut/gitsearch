@@ -7,9 +7,10 @@ import { GoStar, GoRepoForked, GoEye, GoMarkGithub } from 'react-icons/go'
 import { Link, useNavigate } from 'react-router-dom'
 import { CDataTable } from '@coreui/react'
 import Footer from '../components/Footer/Footer'
+import ErrorPage from '../components/Error/ErrorPage'
 
 const ResultPage = (props) => {
-  const { repoData, loading, searchText } = props
+  const { repoData, loading, searchText, error } = props
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,6 +24,8 @@ const ResultPage = (props) => {
       <SeachHeader text={searchText} />
       {loading ? (
         <Spinner />
+      ) : error ? (
+        <ErrorPage />
       ) : (
         <div className="container">
           <CDataTable
@@ -80,7 +83,7 @@ const mapStateToProps = (state) => {
   return {
     loading: state.fetchedRepo.loading,
     repoData: state.fetchedRepo.repoData,
-    error: state.fetchedRepo.loading,
+    error: state.fetchedRepo.error,
     searchText: state.searchData.text,
   }
 }

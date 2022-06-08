@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { repoSearch } from '../redux/actions/reposFetchActions/repoFetchActions'
 import { useNavigate } from 'react-router-dom'
@@ -7,12 +7,17 @@ import { BsGithub } from 'react-icons/bs'
 import { FaSearch } from 'react-icons/fa'
 import useWindowSize from '../hooks/useWindowSize'
 import { getDate } from '../utility/getDate'
+import { searchTextAction } from '../redux/actions/searchData/searchDataActions'
 
 const HomePage = (props) => {
   const [searchText, setSearchText] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const size = useWindowSize()
+
+  useEffect(() => {
+    dispatch(searchTextAction(''))
+  }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -70,6 +75,7 @@ const HomePage = (props) => {
               setSearchText(e.target.value)
             }}
             placeholder="Search repositories on Github..."
+            required
           />
           <button
             type="submit"

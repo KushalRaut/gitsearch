@@ -76,6 +76,7 @@ const SearchHeader = (props) => {
                 onChange={(e) => {
                   dispatch(searchTextAction(e.target.value))
                 }}
+                required
               />
 
               <button type="submit" className="text-2xl px-3 border-l-2">
