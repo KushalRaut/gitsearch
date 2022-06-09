@@ -1,13 +1,12 @@
-import { Input, InputGroup, InputRightElement, Select } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { Select } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { repoSearch } from '../../redux/actions/reposFetchActions/repoFetchActions'
 import { searchTextAction } from '../../redux/actions/searchData/searchDataActions'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './searchHeader.css'
-import { FaGithubSquare, FaSearch } from 'react-icons/fa'
+import { FaGithubSquare } from 'react-icons/fa'
 import { BiSearchAlt } from 'react-icons/bi'
-import useWindowSize from '../../hooks/useWindowSize'
 
 const SearchHeader = (props) => {
   const text = props.text ? props.text : ''
@@ -15,7 +14,6 @@ const SearchHeader = (props) => {
   const [ascDsc, setAscDsc] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { width } = useWindowSize()
 
   console.log('textprops', text)
 
