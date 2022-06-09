@@ -26,6 +26,7 @@ const fetchFailed = (message) => {
 export const repoSearch = (searchData) => {
   return (dispatch) => {
     dispatch(fetchStart())
+    console.log('From repoSearch', searchData.searchText)
 
     axiosInstance
       .get('/search/repositories', {

@@ -12,12 +12,12 @@ import ErrorPage from '../components/Error/ErrorPage'
 const ResultPage = (props) => {
   const { repoData, loading, searchText, error } = props
   const navigate = useNavigate()
-
   useEffect(() => {
     if (!loading && !searchText) {
       navigate('/')
     }
-  }, [searchText])
+  }, [])
+  useEffect(() => {}, [searchText])
 
   return (
     <>
@@ -27,7 +27,7 @@ const ResultPage = (props) => {
       ) : error ? (
         <ErrorPage />
       ) : (
-        <div className="container">
+        <div className="container min-h-[65vh]">
           <CDataTable
             fields={tableColumn}
             items={repoData}

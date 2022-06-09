@@ -17,13 +17,16 @@ const SearchHeader = (props) => {
   const dispatch = useDispatch()
   const { width } = useWindowSize()
 
+  console.log('textprops', text)
+
   const { pathname } = useLocation()
 
   const result = pathname.includes('/repo/')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(repoSearch(text))
+    console.log('SearchText', text)
+    dispatch(repoSearch({ searchText: text }))
     navigate('/results')
   }
 
